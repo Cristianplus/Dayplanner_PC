@@ -1,5 +1,9 @@
 .body {
-    background-color: #b3ecf4;
+    background: linear-gradient(
+        to bottom,
+        #84bdc5 1%,
+        #9adbe8 60%,
+        #000 100%);
     margin: 0;
     min-height: 100vh;
     display: grid;
@@ -23,15 +27,42 @@
         margin: 0;
     }
 
+.add_task_btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #00e1ff;
+    color: #000;
+    font-size: 45px;
+    border: 2px solid #000;
+    cursor: pointer;
+    justify-content: center;
+    align-items: right;
+    transition: background-color 0.2s, transform 0.3s;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+.add_task_btn:hover {
+    background-color: #00bfd8;
+    transform: scale(1.1);
+}
+
+.add_task_btn:active {
+    background-color: #81f0ff;
+    transform: scale(0.95);
+}
+
 .form-add-edit {
     width: 500px;
-    height: 350px;
+    height: 320px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     margin: 80px;
     font-size: 14px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 30px;
 }
 
 .add_task {
@@ -45,41 +76,32 @@
     border: 2px solid #78b1b9;
 }
 
-#btn_date {
-    width: 170px;
+.botones_hora_fecha {
     margin-top: 20px;
-    margin-left: 30px;
-    text-align: center;
+    display: flex;
+    gap: 70px;
 }
 
-#btn_hour {
-    width: 170px;
-    margin-top: -20px;
-    text-align: center;
-    margin-left: 290px;
+#lbl_date {
+    font-weight: bold;
+    margin-top: 10px;
 }
 
-.date_select {
+.select_date {
+    display: flex;
+    gap: 10px;
+}
+
+.checkboxes {
+    display: flex;
+    gap: 150px; /*Espacio entre checks_task*/
     margin-top: 20px;
 }
 
-#all_day {
-    margin-left: -480px;
-    margin-top: 20px;
-}
-
-#all_day_label {
-    margin-top: -17px;
-    margin-left: 20px;
-}
-
-#repeat_task {
-    margin-top: -14px;
-}
-
-#repeat_task_label {
-    margin-left: 265px;
-    margin-top: -17px;
+#check_task {
+    display: flex;
+    align-items: center;
+    gap:8px; /*Espacio entre el check y el label*/
 }
 
 #color_label {
@@ -106,6 +128,9 @@ input::placeholder {
 }
 
 .add_btn {
-    width: 100px;
+    width: 120px;
     margin: 30px auto;
+    border-radius: 5px;
+    padding: 4px;
 }
+

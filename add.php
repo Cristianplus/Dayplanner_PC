@@ -1,0 +1,76 @@
+<?php
+include "bd/bd.php";            
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dayplanner/Editar</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body class="body">
+        <div class="container">
+            <h1 class="header">&nbsp;Agregar tarea</h1>
+        </div>
+
+        <!-- Formulario para agregar o editar tarea -->
+        <div class="form-add-edit">
+            <form class="add_task">
+
+                <!-- Título de la tarea -->
+                <input type="text" name="titulo" placeholder="Agregar un título a tu tarea" class="title_task" required>
+
+                <!-- Botones de fecha y hora -->
+                <div class="botones_hora_fecha">
+                    <div class="select_date">
+                    <label for="btn_date" id="lbl_date">Fecha:</label>
+                    <input id="btn_date" type="date" required></input>
+                    </div>
+                    <div class="select_date">
+                    <label for="btn_hour" id="lbl_date">Hora:</label>
+                    <input id="btn_hour" type="time" required></input>
+                    </div>
+                </div>
+
+                <!-- Checkboxes -->
+                <div class="checkboxes">
+                    <!-- Checkbox para todo el día -->
+                    <div class="check_task">
+                    <input type="checkbox" name="all_day" id="all_day">
+                    <label for="all_day">Todo el día</label>
+                    </div>
+
+                    <!-- Checkbox para repetir tarea -->
+                    <div class="check_task">
+                    <input type="checkbox" name="repeat_task" id="repeat_task">
+                    <label for="repeat_task">Repetir tarea</label>
+                    </div>
+                </div>
+
+                <!-- Selector de color de importancia -->
+                <label for="color" id="color_label">Importancia:</label>
+                <select name="color" id="color">
+                <option>Seleccionar...</option>
+                <option>🔴 Muy importante</option>
+                <option>🟢 Importante</option>
+                <option>🔵 No tan importante</option>
+                </select>
+
+                <!-- Descripción de la tarea -->
+                <input type="textarea" name="descripcion" placeholder="Descripción" id="description">
+
+                <!-- Botón para agregar tarea -->
+                <button class="add_btn">Agregar tarea</button>
+
+            </form>
+            
+        </div>
+        
+        <script src="js/app.js"></script>
+    </body>
+
+    </html>

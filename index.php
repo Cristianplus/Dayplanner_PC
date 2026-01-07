@@ -1,3 +1,7 @@
+<?php 
+include "bd/bd.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +14,14 @@
 
     <body class="body">
         <div class="container">
-            <h1 class="header">Inicio</h1>
+            <h1 class="header">&nbsp;Inicio</h1>
+        </div>
+
+        <!-- Botón para agregar tarea -->
+        <a href="add.php">
+        <button class="add_task_btn">+</button>
+        </a>
+
         <script src="js/app.js"></script>
     </body>
 
