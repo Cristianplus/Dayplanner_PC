@@ -19,20 +19,22 @@ include "bd/bd.php";
 
         <!-- Formulario para agregar o editar tarea -->
         <div class="form-add-edit">
-            <form class="add_task">
+            <form class="add_task" method="POST" action="add.php">
 
                 <!-- Título de la tarea -->
                 <input type="text" name="titulo" placeholder="Agregar un título a tu tarea" class="title_task" required>
 
-                <!-- Botones de fecha y hora -->
+                <!-- Boton de fecha y hora -->
                 <div class="botones_hora_fecha">
                     <div class="select_date">
                     <label for="btn_date" id="lbl_date">Fecha:</label>
-                    <input id="btn_date" type="date" required></input>
+                    <!-- Boton de fecha -->
+                    <input id="btn_date" name="fecha" type="date" required></input>
                     </div>
                     <div class="select_date">
                     <label for="btn_hour" id="lbl_date">Hora:</label>
-                    <input id="btn_hour" type="time" required></input>
+                    <!-- Boton de hora -->
+                    <input id="btn_hour" name="hora" type="time" required></input>
                     </div>
                 </div>
 
