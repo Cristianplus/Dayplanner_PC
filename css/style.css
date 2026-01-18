@@ -120,9 +120,11 @@ input::placeholder {
     opacity: 1;
 }
 
-#description {
+#descripcion {
     margin-top: 20px;
-    border-color: #b3ecf4;
+    padding: 7px;
+    border: 2px solid #78b1b9;
+    border-radius: 7px;
     background-color: white;
     height: 60px;  
 }
@@ -147,3 +149,45 @@ input::placeholder {
     transform: scale(0.35);
 }
 
+.tasks-container {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 30px;
+    position: absolute;
+    left: 40px;
+}
+
+.task-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.task-card h3 {
+    margin: 0;
+}
+
+.delete-btn {
+    position: absolute;
+    right: 50px;          /* distancia desde la derecha */
+    margin-top:-10px;
+    
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-btn img {
+    width: 50px;
+    height: 50px;
+}
+
+.delete-btn:hover img {
+    transform: scale(1.1);
+}

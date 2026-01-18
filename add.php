@@ -1,5 +1,38 @@
 <?php
-include "bd/bd.php";            
+// Conexión a la base de datos
+include "bd/bd.php";  
+
+// Verificar que el formulario fue enviado
+if ($_SERVER ["REQUEST_METHOD"] == "POST") {
+
+    // Recibir los datos del formulario
+    $titulo = $_POST["titulo"];
+    $fecha = $_POST["fecha"];
+    $hora = $_POST["hora"];
+    $descripcion = $_POST["descripcion"];
+    $color = $_POST["color"];
+
+    // Manejo de checkboxes
+    $all_day = isset($_POST["all_day"]) ? 1 : 0;
+    $repeat_task = isset($_POST["repeat_task"]) ? 1 : 0;
+
+    // Crear consulta SQL
+    $sql = "INSERT INTO tareas 
+    (titulo, fecha, hora, all_day, repeat_task, color, descripcion)
+    VALUES
+    ('$titulo', '$fecha', '$hora', '$all_day', '$repeat_task', '$color', '$descripcion')";
+
+    // Ejecutar la consulta SQL
+    if ($conexion->query($sql) === TRUE) {
+        // Redirigir si se guardó correctamente
+        header("Location: index.php");
+        exit();
+    } else {
+        echo "Error al guardar la tarea: " . $conexion->error;
+        }
+} else {
+        echo "Acceso no permitido";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -63,10 +96,11 @@ include "bd/bd.php";
                 </select>
 
                 <!-- Descripción de la tarea -->
-                <input type="textarea" name="descripcion" placeholder="Descripción" id="description">
+                <textarea name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
+
 
                 <!-- Botón para agregar tarea -->
-                <button class="add_btn">Agregar tarea</button>
+                <button type="submit" class="add_btn">Agregar tarea</button>
 
             </form>
             

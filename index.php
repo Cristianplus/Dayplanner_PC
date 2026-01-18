@@ -1,6 +1,36 @@
 <?php 
 include "bd/bd.php";
+
+if ($_SERVER ["REQUEST_METHOD"] == "GET") {
+
+    $sql = "SELECT * FROM tareas";
+    $result = $conexion->query($sql);
+}
 ?>
+
+<div class="tasks-container">
+
+<?php while ($tarea = $result->fetch_assoc()): ?>
+    <div class="task-card" data-id="<?= $tarea['id'] ?>">
+        <h3><?= htmlspecialchars($tarea['titulo']) ?></h3>
+        
+        <button class="delete-btn">
+            <img src="img/papelera.png" alt="Eliminar">
+        </button>
+
+        <p>
+            <?= $tarea['fecha'] ?> 
+            <?= $tarea['all_day'] ? '(Todo el día)' : $tarea['hora'] ?>
+        </p>
+
+        <p><?= htmlspecialchars($tarea['descripcion']) ?></p>
+
+        
+    </div>
+
+<?php endwhile; ?>
+
+</div>
 
 <!DOCTYPE html>
 <html lang="en">
