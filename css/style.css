@@ -171,6 +171,10 @@ input::placeholder {
     cursor: pointer;
 }
 
+.task-complete {
+    margin-left: -20px;
+}
+
 .task-complete:hover {
     transform: scale(1.003);
 }
