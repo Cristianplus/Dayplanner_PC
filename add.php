@@ -20,10 +20,17 @@ if ($_SERVER ["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO tareas 
     (titulo, fecha, hora, all_day, repeat_task, color, descripcion)
     VALUES
-    ('$titulo', '$fecha', '$hora', '$all_day', '$repeat_task', '$color', '$descripcion')";
+    (?, ?, ?, ?, ?, ?, ?)";
+
+    // Preparar la consulta
+    $stmt = $conexion->prepare($sql);
+
+    // Vincular los parámetros
+    $stmt->bind_param("sssiiss", $titulo, $fecha, $hora, $all_day, $repeat_task, $color, $descripcion);
+
 
     // Ejecutar la consulta SQL
-    if ($conexion->query($sql) === TRUE) {
+    if ($stmt->execute()) {
         // Redirigir si se guardó correctamente
         header("Location: index.php");
         exit();

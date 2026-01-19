@@ -10,26 +10,30 @@ if ($_SERVER ["REQUEST_METHOD"] == "GET") {
 
 <div class="tasks-container">
 
-<?php while ($tarea = $result->fetch_assoc()): ?>
-    <div class="task-card" data-id="<?= $tarea['id'] ?>">
-        <h3><?= htmlspecialchars($tarea['titulo']) ?></h3>
-        
-        <button class="delete-btn">
-            <img src="img/papelera.png" alt="Eliminar">
-        </button>
+    <?php while ($tarea = $result->fetch_assoc()): ?>
+        <div class="task-complete" data-id="<?= $tarea['id'] ?>">
+            <div class="title-date">
+            <?= htmlspecialchars($tarea['fecha']) ?>
+            </div>
 
-        <p>
-            <?= $tarea['fecha'] ?> 
-            <?= $tarea['all_day'] ? '(Todo el día)' : $tarea['hora'] ?>
-        </p>
+            <div class="task-card" data-id="<?= $tarea['id'] ?>">
+                <h3><?= htmlspecialchars($tarea['titulo']) ?></h3>
+                
+                <button class="delete-btn">
+                    <img src="img/papelera.png" alt="Eliminar">
+                </button>
 
-        <p><?= htmlspecialchars($tarea['descripcion']) ?></p>
+                <p>
+                    <?= $tarea['all_day'] ? '(Todo el día)' : $tarea['hora'] ?>
+                </p>
 
-        
-    </div>
+                <p><?= htmlspecialchars($tarea['descripcion']) ?></p>
 
-<?php endwhile; ?>
+                
+            </div>
 
+        </div>
+    <?php endwhile; ?>
 </div>
 
 <!DOCTYPE html>
@@ -44,7 +48,7 @@ if ($_SERVER ["REQUEST_METHOD"] == "GET") {
 
     <body class="body">
         <div class="container">
-            <h1 class="header">&nbsp;Inicio</h1>
+            <h1 class="header">&nbsp;Tareas</h1>
         </div>
 
         <!-- Botón para agregar tarea -->

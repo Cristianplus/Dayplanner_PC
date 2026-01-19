@@ -8,7 +8,8 @@
     min-height: 100vh;
     display: grid;
     place-items: center;
-    font-family: Georgia, sans-serif;
+    font-family: icon;
+    margin-top: 30px;
 }
 
 .container {
@@ -153,31 +154,36 @@ input::placeholder {
     width: 600px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 6px;
     margin-top: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.01);
     border-radius: 20px;
-    padding: 30px;
     position: absolute;
     left: 40px;
 }
 
 .task-card {
     background-color: white;
-    padding: 15px;
+    padding: 20px 20px 10px 20px;
     border-radius: 10px;
+    border-top-left-radius: 0px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.task-complete:hover {
+    transform: scale(1.003);
 }
 
 .task-card h3 {
     margin: 0;
+    font-family: Georgia;
 }
 
 .delete-btn {
     position: absolute;
     right: 50px;          /* distancia desde la derecha */
-    margin-top:-10px;
-    
+    margin-top:-15px;
     background: none;
     border: none;
     cursor: pointer;
@@ -190,4 +196,15 @@ input::placeholder {
 
 .delete-btn:hover img {
     transform: scale(1.1);
+}
+
+.title-date {
+    width: 80px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    background-color: rgb(0, 22, 59);
+    padding-left: 10px;
+    font: bold 80% sans-serif;
+    padding-top: 3px;
 }
