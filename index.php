@@ -8,34 +8,6 @@ if ($_SERVER ["REQUEST_METHOD"] == "GET") {
 }
 ?>
 
-<div class="tasks-container">
-
-    <?php while ($tarea = $result->fetch_assoc()): ?>
-        <div class="task-complete" data-id="<?= $tarea['id'] ?>">
-            <div class="title-date">
-            <?= htmlspecialchars($tarea['fecha']) ?>
-            </div>
-
-            <div class="task-card" data-id="<?= $tarea['id'] ?>">
-                <h3><?= htmlspecialchars($tarea['titulo']) ?></h3>
-                
-                <button class="delete-btn">
-                    <img src="img/papelera.png" alt="Eliminar">
-                </button>
-
-                <p>
-                    <?= $tarea['all_day'] ? '(Todo el día)' : $tarea['hora'] ?>
-                </p>
-
-                <p><?= htmlspecialchars($tarea['descripcion']) ?></p>
-
-                
-            </div>
-
-        </div>
-    <?php endwhile; ?>
-</div>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,15 +19,45 @@ if ($_SERVER ["REQUEST_METHOD"] == "GET") {
     </head>
 
     <body class="body">
-        <div class="container">
-            <h1 class="header">&nbsp;Tareas</h1>
+        <?php include "menu.php"; ?>
+        <div class="main-content">
+            <div class="container">
+                <h1 class="header">&nbsp;Tareas</h1>
+            </div>
+
+            <!-- Botón para agregar tarea -->
+            <a href="add.php">
+                <button class="add_task_btn">+</button>
+            </a>
+
+            <div class="tasks-container">
+
+                <?php while ($tarea = $result->fetch_assoc()): ?>
+                    <div class="task-complete" data-id="<?= $tarea['id'] ?>">
+                        <div class="title-date">
+                        <?= htmlspecialchars($tarea['fecha']) ?>
+                        </div>
+
+                        <div class="task-card" data-id="<?= $tarea['id'] ?>">
+                            <h3><?= htmlspecialchars($tarea['titulo']) ?></h3>
+                            
+                            <button class="delete-btn">
+                                <img src="img/papelera.png" alt="Eliminar">
+                            </button>
+
+                            <p>
+                                <?= $tarea['all_day'] ? '(Todo el día)' : $tarea['hora'] ?>
+                            </p>
+
+                            <p><?= htmlspecialchars($tarea['descripcion']) ?></p>
+
+                            
+                        </div>
+
+                    </div>
+                <?php endwhile; ?>
+            </div>
         </div>
-
-        <!-- Botón para agregar tarea -->
-        <a href="add.php">
-        <button class="add_task_btn">+</button>
-        </a>
-
         <script src="js/app.js"></script>
     </body>
 
