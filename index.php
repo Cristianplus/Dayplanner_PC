@@ -33,9 +33,33 @@ if ($_SERVER ["REQUEST_METHOD"] == "GET") {
             <div class="tasks-container">
 
                 <?php while ($tarea = $result->fetch_assoc()): ?>
+
+                    <?php 
+                    $meses = [
+                        "January" => "enero",
+                        "February" => "febrero",
+                        "March" => "marzo",
+                        "April" => "abril",
+                        "May" => "mayo",
+                        "June" => "junio",
+                        "July" => "julio",
+                        "August" => "agosto",
+                        "September" => "septiembre",
+                        "October" => "octubre",
+                        "November" => "noviembre",
+                        "December" => "diciembre"
+                    ];
+
+                    $fecha = date("j \\d\\e F \\d\\e\\l Y", strtotime($tarea['fecha']));
+                    $fechaFormateada = str_replace(array_keys($meses),
+                    array_values($meses), 
+                    $fecha
+                    );
+                    ?>
+
                     <div class="task-complete" data-id="<?= $tarea['id'] ?>">
                         <div class="title-date">
-                        <?= htmlspecialchars($tarea['fecha']) ?>
+                        <?= $fechaFormateada ?>
                         </div>
 
                         <div class="task-card" data-id="<?= $tarea['id'] ?>">

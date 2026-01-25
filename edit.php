@@ -38,6 +38,9 @@ $tarea = $result->fetch_assoc();
         <div class="form-add-edit">
             <form class="add_task" method="POST" action="update.php">
 
+                <!-- ID oculato de la tarea -->
+                <input type="hidden" name="id" value="<?=  $tarea['id'] ?>">
+
                 <!-- Título de la tarea -->
                 <input
                     type="text"

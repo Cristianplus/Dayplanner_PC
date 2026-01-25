@@ -9,7 +9,6 @@
     display: flex;
     
     font-family: icon;
-    margin-top: 30px;
 }
 
 .container {
@@ -246,27 +245,32 @@ input::placeholder {
 }
 
 .title-date {
-    width: 80px;
+    width: 180px;
+    text-align: center;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     color: white;
     background-color: rgb(0, 22, 59);
-    padding-left: 10px;
     font: bold 80% sans-serif;
-    padding-top: 3px;
+    padding: 3px 0px;
+}
+
+.sidebar .logo img {
+    visibility: hidden;
 }
 
 .sidebar:hover .logo img {
-    margin-left: -40px;
+    visibility: visible;
     width: 180px;
     height: 100px;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin: 10px;
+    margin-top: 60px;
 }
 
 /* Estilos para la barra lateral de navegación */
 .sidebar {
-    width: 20px; /*cerrada*/
+    width: 30px; /*cerrada*/
     height: 100vh;
     background-color: #000;
     color: white;
@@ -293,7 +297,7 @@ input::placeholder {
 }
 
 .menu-container {
-    padding-top: 40px;
+    padding-top: 20px;
     padding-left: 20px;
 }
 
@@ -321,7 +325,7 @@ input::placeholder {
 
 /* Estilos cuando la barra lateral está abierta */
 .sidebar:hover {
-    width: 180px; /*abierta*/
+    width: 200px; /*abierta*/
 }
 
 /*mostrar menú*/
